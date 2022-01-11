@@ -19,7 +19,7 @@ def imfaot(ci,cf,co):
 			line  = lines[random.choice(range(len(lines)))]
 			a.append(line.rstrip("\n"))
 
-	return *a,
+	return a
 
 
 
