@@ -3,12 +3,8 @@
 import sys, os, codecs
 import random
 
-def imfaot(pol=None, lang=None):
+def imfaot(pol=None, lang=None, path = 'data'):
 	ci,cf,co = "imena_%s_%s.txt", "family_%s_%s.txt", "otch_%s_%s.txt"
-	
-	path = 'data'
-	if len(sys.argv) > 3:
-		path = sys.argv[3]
 	path += os.path.sep
 	if not pol in ['m','f']: pol = ['m','f'][random.choice(range(2))]
 	if not lang in ['ru','ua']: lang = ['ru','ua'][random.choice(range(2))]
