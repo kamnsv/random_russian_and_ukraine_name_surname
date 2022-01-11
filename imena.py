@@ -1,52 +1,25 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import sys
+import sys, os, codecs
 import random
 
 
 
 
 def imfaot(ci,cf,co):
+	path = 'data'
+	if len(sys.argv) > 3:
+		path = sys.argv[3]
+	path += os.path.sep
+    
+	a = []
+	for file_name in (ci,cf,co):
+		with codecs.open(path+file_name, "r", "utf-8") as f:
+			lines = f.readlines()
+			line  = lines[random.choice(range(len(lines)))]
+			a.append(line.rstrip("\n"))
 
-	f = open(ci,"r")
-	line = f.readlines()
-	lenline = len(line)
-	rand = random.randint(0,lenline)
-	f.close()
-
-	r = open(cf,"r")
-	fam = r.readlines()
-	lenfam = len(fam)
-	famrand = random.randint(0,lenfam)
-	r.close()
-
-	k = open(co,"r")
-	ot = k.readlines()
-	lenotch = len(ot)
-	otchrand = random.randint(0,lenotch)
-	k.close()
-
-
-	if rand > 0:
-		rand-=1
-	if famrand > 0:
-		famrand-=1
-	if otchrand > 0:
-		otchrand-=1
-
-	a = ""
-	b = ""
-	c = ""
-	a = line[rand]
-	b = fam[famrand]
-	c = ot[otchrand]
-	a = a.rstrip("\n")
-	b = b.rstrip("\n")
-	c = c.rstrip("\n")
-	
-
-
-	return (a,b,c)
+	return *a,
 
 
 
